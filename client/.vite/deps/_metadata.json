@@ -1,0 +1,44 @@
+{
+  "hash": "9da7a994",
+  "browserHash": "d7ead823",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "0d92d5f1",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "08a9e279",
+      "needsInterop": true
+    },
+    "react-icons/bs": {
+      "src": "../../node_modules/react-icons/bs/index.esm.js",
+      "file": "react-icons_bs.js",
+      "fileHash": "f2953056",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "d63dbbde",
+      "needsInterop": false
+    },
+    "recharts": {
+      "src": "../../node_modules/recharts/es6/index.js",
+      "file": "recharts.js",
+      "fileHash": "5050d1a1",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-KUT6LNQK": {
+      "file": "chunk-KUT6LNQK.js"
+    },
+    "chunk-HIXPLMDX": {
+      "file": "chunk-HIXPLMDX.js"
+    }
+  }
+}
