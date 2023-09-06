@@ -58,7 +58,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsMenuButtonWideFill className="icon" /> Reports
           </a>
         </li>
-        <li className="sidebar-list-item" onClick={() => navigate("/")}>
+        <li className="sidebar-list-item" onClick={() => navigate("/profile")}>
           <BsPersonCircle className="icon" /> Profile
         </li>
       </ul>
