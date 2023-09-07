@@ -42,11 +42,16 @@ const Signup = () => {
       navigate('/');
     } else if (response.status === 400) {
       console.log('User already exists');
+      alert('User already exists')
     } else {
       console.error('Error registering user');
+        alert('Error registering user')
+
     }
   } catch (error) {
     console.error('Error registering user:', error);
+        alert('Error registering user')
+
   }
     // Reset the form fields
     setEmail("");

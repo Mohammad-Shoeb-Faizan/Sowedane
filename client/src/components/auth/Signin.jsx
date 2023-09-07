@@ -32,6 +32,7 @@ const Signin = () => {
         localStorage.setItem('token', token); // Store the token in localStorage
         navigate('/dashboard');
       } else {
+        alert('Authentication failed')
         console.error('Authentication failed');
       }
     } catch (error) {
