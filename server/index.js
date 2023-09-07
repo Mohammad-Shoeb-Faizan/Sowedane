@@ -4,13 +4,11 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const session = require("express-session"); // Import express-session
+const session = require("express-session");
 const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
-// const profileRoute = require("./routes/profile");
 
-
-dotenv.config(); // Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,16 +18,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-
 // Configure express-session
 app.use(
-    session({
-      secret: process.env.SESSION_SECRET, // Replace with your secret key
-      resave: false,
-      saveUninitialized: true,
-      // You can configure other session options here
-    })
-  );
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -50,8 +46,6 @@ app.get("/", (req, res) => {
 
 app.use("/api", signupRoute);
 app.use("/api", signinRoute);
-// app.use("/api", profileRoute);
-
 
 // Start the server
 app.listen(port, () => {
