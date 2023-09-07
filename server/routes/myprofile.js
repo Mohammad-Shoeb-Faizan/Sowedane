@@ -2,15 +2,36 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
+const jwt = require("jsonwebtoken"); // Import JWT library
 
-// Middleware to verify authentication, if needed
+// Middleware to verify authentication using JWT
+const verifyToken = (req, res, next) => {
+  const token = req.header("Authorization"); // Get the token from the request headers
 
-router.get("/get-user-profile", async (req, res) => {
+  if (!token) {
+    return res.status(401).json({ message: "Authentication failed" });
+  }
+
   try {
-    // Retrieve the user's profile data based on their session or token
-    const user = await User.findById(req.session.user.userId); // Assuming you store user's ID in the session
+    // Verify and decode the token
+    const decoded = jwt.verify(token, "my-secret-key"); // Replace with your actual secret key
+    req.user = decoded;
+    next();
+  } catch (error) {
+    return res.status(401).json({ message: "Authentication failed" });
+  }
+};
+
+router.get("/get-user-profile", verifyToken, async (req, res) => {
+  try {
+    // Access the user's ID from the decoded JWT token
+    const userId = req.user.userId;
+
+    // Retrieve the user's profile data based on the user ID
+    const user = await User.findById(userId);
+
     if (!user) {
-      return res.status(401).json({ message: "User not found" });
+      return res.status(404).json({ message: "User not found" });
     }
 
     // Return the user's profile data
