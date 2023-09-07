@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BsPersonCircle, BsSearch, BsJustify } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
+
 function Header({ OpenSidebar }) {
   let navigate = useNavigate();
+ const userEmail = localStorage.getItem("email")
+
 
   const handleLogout = () => {
-    // Clear the JWT token from local storage
     localStorage.removeItem("token");
-
-    // Redirect the user to the login page
+    localStorage.removeItem("email");
     navigate("/");
   };
   return (
@@ -22,7 +23,13 @@ function Header({ OpenSidebar }) {
       </div>
       <div className="header-right">
         <BsPersonCircle className="icon" onClick={() => navigate("/profile")} />
-        <button style={{ backgroundColor: 'blue', borderRadius: '10px' }} onClick={handleLogout}>Logout</button>
+        <span style={{ marginRight: '1rem', fontWeight: 'bold', fontSize: '1.2rem', color: 'teal' }}>Hello, {userEmail.split("@")[0]}</span>
+        <button
+          style={{ backgroundColor: "aqua", borderRadius: "10px" }}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
       </div>
     </header>
   );

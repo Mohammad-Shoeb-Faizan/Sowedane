@@ -7,7 +7,10 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
-const profileRoute = require("./routes/profile");
+const updateProfileRoute = require("./routes/updateProfile"); // Import the new route
+const profileRoute = require("./routes/myprofile");
+
+
 
 dotenv.config();
 
@@ -47,6 +50,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", signupRoute);
 app.use("/api", signinRoute);
+app.use("/api", updateProfileRoute); // You can use a different prefix if needed
 app.use("/api", profileRoute);
 
 // Start the server

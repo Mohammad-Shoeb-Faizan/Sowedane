@@ -30,6 +30,7 @@ const Signin = () => {
       if (response.status === 200) {
         const { token } = await response.json();
         localStorage.setItem('token', token); // Store the token in localStorage
+        localStorage.setItem('email', email); // Store the token in localStorage
         navigate('/dashboard');
       } else {
         alert('Authentication failed')

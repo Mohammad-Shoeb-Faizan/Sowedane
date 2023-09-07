@@ -53,13 +53,11 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
             <BsListCheck className="icon" /> Inventory
           </a>
         </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsMenuButtonWideFill className="icon" /> Reports
-          </a>
-        </li>
         <li className="sidebar-list-item" onClick={() => navigate("/profile")}>
           <BsPersonCircle className="icon" /> Profile
+        </li>
+        <li className="sidebar-list-item" onClick={() => navigate("/editprofile")}>
+          <BsMenuButtonWideFill className="icon" /> Edit Profile
         </li>
       </ul>
     </aside>
