@@ -47,34 +47,36 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
+    // Create an object with the profile details
+    const profileData = {
+      fullName,
+      email,
+      phone,
+      address,
+      companyName,
+    };
+  
     try {
-      const response = await fetch("http://localhost:3000/api/update-profile", {
-        method: "POST",
+      // Make a POST request to your server to update the user's profile
+      const response = await fetch('http://localhost:3000/api/updateProfile', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          fullName,
-          phone,
-          address,
-          companyName,
-        }),
+        body: JSON.stringify(profileData),
       });
   
       if (response.ok) {
-        // Profile update successful
-        alert('submission successful')
-        // You can show a success message or redirect the user to another page
+        // Profile update was successful, you can handle success here
+        // Optionally, you can redirect the user to another page
+        navigate('/dashboard');
       } else {
-        // Handle error response from the server
-        const data = await response.json();
-        // Display an error message to the user
-        alert('submission error')
+        // Handle errors here (e.g., show an error message)
+        console.error('Profile update failed.');
       }
     } catch (error) {
-      console.error("Error updating profile:", error);
       // Handle network errors or other exceptions
-      alert('submission error')
+      console.error('Error updating profile:', error);
     }
   };
   
