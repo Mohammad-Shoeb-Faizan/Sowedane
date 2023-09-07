@@ -21,13 +21,33 @@ const Signup = () => {
     setConfirmPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    navigate("/");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
     // You can add your signup logic here
 
+    // Send a POST request to your API
+  try {
+    const response = await fetch('http://localhost:3000/api/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (response.status === 201) {
+      console.log('User registered successfully');
+      navigate('/');
+    } else if (response.status === 400) {
+      console.log('User already exists');
+    } else {
+      console.error('Error registering user');
+    }
+  } catch (error) {
+    console.error('Error registering user:', error);
+  }
     // Reset the form fields
     setEmail("");
     setPassword("");

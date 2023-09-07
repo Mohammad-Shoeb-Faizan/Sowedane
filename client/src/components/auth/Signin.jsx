@@ -15,17 +15,34 @@ const Signin = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    navigate("/dashboard");
-
-    // You can add your authentication logic here
-
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.status === 200) {
+        const { token } = await response.json();
+        localStorage.setItem('token', token); // Store the token in localStorage
+        navigate('/dashboard');
+      } else {
+        console.error('Authentication failed');
+      }
+    } catch (error) {
+      console.error('Authentication failed:', error);
+    }
+  
     // Reset the form fields
-    setEmail("");
-    setPassword("");
+    setEmail('');
+    setPassword('');
   };
+  
 
   return (
     <div className="signin-container">

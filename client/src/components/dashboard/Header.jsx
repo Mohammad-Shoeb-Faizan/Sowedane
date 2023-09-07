@@ -4,6 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 function Header({ OpenSidebar }) {
   let navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear the JWT token from local storage (or cookies, if that's where you store it)
+    localStorage.removeItem("token");
+
+    // Redirect the user to the login page or perform any other necessary action
+    navigate("/");
+  };
   return (
     <header className="header">
       <div className="menu-icon">
@@ -14,6 +22,7 @@ function Header({ OpenSidebar }) {
       </div>
       <div className="header-right">
         <BsPersonCircle className="icon" onClick={() => navigate("/profile")} />
+        <button style={{ backgroundColor: 'blue', borderRadius: '10px' }} onClick={handleLogout}>Logout</button>
       </div>
     </header>
   );
