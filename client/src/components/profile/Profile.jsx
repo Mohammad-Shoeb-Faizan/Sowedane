@@ -70,12 +70,11 @@ const Profile = () => {
       <div
         style={{
           backgroundColor: "#1d2634",
-          padding: "30px",
+          padding: "50px",
           width: "50vw",
           border: "1px solid #ddd",
           borderRadius: "5px",
           margin: "20px",
-          maxWidth: "400px",
           position: "absolute",
           top: "50%",
           left: "50%",
@@ -92,7 +91,7 @@ const Profile = () => {
               placeholder="Enter your full name"
               value={fullName}
               onChange={handleFullNameChange}
-              style={{ width: "100%", padding: "5px" }}
+              style={{ width: "100%", padding: "0.8rem" }}
             />
           </div>
           <div style={{ marginBottom: "10px" }}>
@@ -103,7 +102,7 @@ const Profile = () => {
               placeholder="Enter your email"
               value={email}
               onChange={handleEmailChange}
-              style={{ width: "100%", padding: "5px" }}
+              style={{ width: "100%", padding: "0.8rem" }}
             />
           </div>
           <div style={{ marginBottom: "10px" }}>
@@ -114,7 +113,7 @@ const Profile = () => {
               placeholder="Enter your phone number"
               value={phone}
               onChange={handlePhoneChange}
-              style={{ width: "100%", padding: "5px" }}
+              style={{ width: "100%", padding: "0.8rem" }}
             />
           </div>
           <div style={{ marginBottom: "10px" }}>
@@ -124,7 +123,7 @@ const Profile = () => {
               placeholder="Enter your address"
               value={address}
               onChange={handleAddressChange}
-              style={{ width: "100%", padding: "5px" }}
+              style={{ width: "100%", padding: "0.8rem" }}
             />
           </div>
           <div style={{ marginBottom: "10px" }}>
@@ -135,7 +134,7 @@ const Profile = () => {
               placeholder="Enter your company name"
               value={companyName}
               onChange={handleCompanyNameChange}
-              style={{ width: "100%", padding: "5px" }}
+              style={{ width: "100%", padding: "0.8rem" }}
             />
           </div>
 
