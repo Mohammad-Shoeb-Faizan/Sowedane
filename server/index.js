@@ -7,6 +7,8 @@ const dotenv = require("dotenv");
 const session = require("express-session"); // Import express-session
 const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
+// const profileRoute = require("./routes/profile");
+
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -48,6 +50,8 @@ app.get("/", (req, res) => {
 
 app.use("/api", signupRoute);
 app.use("/api", signinRoute);
+// app.use("/api", profileRoute);
+
 
 // Start the server
 app.listen(port, () => {
