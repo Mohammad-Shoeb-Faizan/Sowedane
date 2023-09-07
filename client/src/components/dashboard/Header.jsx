@@ -6,10 +6,10 @@ function Header({ OpenSidebar }) {
   let navigate = useNavigate();
 
   const handleLogout = () => {
-    // Clear the JWT token from local storage (or cookies, if that's where you store it)
+    // Clear the JWT token from local storage
     localStorage.removeItem("token");
 
-    // Redirect the user to the login page or perform any other necessary action
+    // Redirect the user to the login page
     navigate("/");
   };
   return (

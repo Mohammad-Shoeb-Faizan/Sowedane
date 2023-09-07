@@ -27,7 +27,7 @@ const Signup = () => {
 
     // You can add your signup logic here
 
-    // Send a POST request to your API
+    // Send a POST request to API
   try {
     const response = await fetch('http://localhost:3000/api/signup', {
       method: 'POST',

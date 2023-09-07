@@ -35,7 +35,7 @@ const Profile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // You can add your registration logic here, including handling the uploaded photo
+    // You can add your registration logic here
 
     // Reset the form fields
     setFullName("");
