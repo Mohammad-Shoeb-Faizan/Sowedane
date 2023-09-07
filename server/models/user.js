@@ -11,6 +11,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  profile: {
+    fullName: String,
+    phone: String,
+    address: String,
+    companyName: String,
+  },
 });
 
 module.exports = mongoose.model('User', userSchema);

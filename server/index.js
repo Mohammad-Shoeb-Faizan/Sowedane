@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const signupRoute = require("./routes/signup");
 const signinRoute = require("./routes/signin");
+const profileRoute = require("./routes/profile");
 
 dotenv.config();
 
@@ -46,6 +47,7 @@ app.get("/", (req, res) => {
 
 app.use("/api", signupRoute);
 app.use("/api", signinRoute);
+app.use("/api", profileRoute);
 
 // Start the server
 app.listen(port, () => {

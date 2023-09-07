@@ -32,18 +32,52 @@ const Profile = () => {
     setCompanyName(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   // You can add your registration logic here
+
+  //   // Reset the form fields
+  //   setFullName("");
+  //   setEmail("");
+  //   setPhone("");
+  //   setAddress("");
+  //   setCompanyName("");
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // You can add your registration logic here
-
-    // Reset the form fields
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setAddress("");
-    setCompanyName("");
+  
+    try {
+      const response = await fetch("http://localhost:3000/api/update-profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName,
+          phone,
+          address,
+          companyName,
+        }),
+      });
+  
+      if (response.ok) {
+        // Profile update successful
+        alert('submission successful')
+        // You can show a success message or redirect the user to another page
+      } else {
+        // Handle error response from the server
+        const data = await response.json();
+        // Display an error message to the user
+        alert('submission error')
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      // Handle network errors or other exceptions
+      alert('submission error')
+    }
   };
+  
 
   return (
     <>
